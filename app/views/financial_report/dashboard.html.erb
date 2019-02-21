@@ -1,54 +1,71 @@
-<div class="col-sm-12">
-  <div class="case_flow col-sm-5">
-    <div class="card-header">
-      现金流量表
-    </div>
-    <div class="card">
-      <div class="card-header">
-        收入状况
-      </div>
-      <div class="card-body">
-        This is some text within a card body.
-      </div>
-      <div class="card-header">
-        合计
-      </div>
-      <div class="card-header">
-        支出状况
-      </div>
-      <div class="card-body">
-        This is some text within a card body.
-      </div>
-      <div class="card-header">
-        合计
-      </div>
-      <div class="card-header">
-        现金流量
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-12 balance_sheet">
-    <div class="card-header">
-      资产负债表
-    </div>
-    <div class="row" style="margin-right:0px;margin-left:0px;">
-      <div class="assets_sheet">
-          <div class="card-header">
-            资产
-          </div>
-          <div class="card-body ">
-            This is some text within a card body.
-          </div>
-      </div>
-      <div class="vl"></div>
-      <div class="Liability">
-          <div class="card-header">
-            负债
-          </div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+  </head>
+  <body>
+    <div class="col-xs-12 col-sm-12">
+      <div class="case_flow col-xs-12 col-sm-5">
+        <div class="card-header">
+          现金流量表
+        </div>
+        <div class="card">
+          <u class="title">收入状况</u>
           <div class="card-body">
-            This is some text within a card body02.
+            <table>
+              <% Test_datas_income.each do |cash_input| %>
+                <tr>
+                  <td><%= cash_input.item %></td>
+                  <td>¥ <%= cash_input.money %></td>
+                </tr>
+              <% end %>
+            </table>
           </div>
+          <div class="card-header">
+            合计
+          </div>
+          <u class="title">支出状况</u>
+          <div class="card-body">
+            <table>
+              <% Test_datas_outlay.each do |cash_input| %>
+                <tr>
+                  <td><%= cash_input.item %></td>
+                  <td>¥ <%= -cash_input.money %></td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+          <div class="card-header">
+            合计
+          </div>
+          <div class="card-header">
+            现金流量
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 balance_sheet">
+        <div class="card-header">
+          资产负债表
+        </div>
+        <div class="row" style="margin-right:0px;margin-left:0px;">
+          <div class="assets_sheet">
+              <u class="title">资产</u>
+              <div class="card-body ">
+                This is some text within a card body.
+              </div>
+          </div>
+          <div class="vl"></div>
+          <div class="Liability">
+              <u class="title">负债</u>
+              <div class="card-body">
+                This is some text within a card body02.
+              </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+  </body>
+
+</html>

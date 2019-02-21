@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+count = 1
+10.times do
+  money = count * 100
+  CashFlow.create(item: "item#{count}", money: money)
+  count += 1
+end
+
+10.times do
+  money = -count * 100
+  CashFlow.create(item: "item#{count}", money: money)
+  count += 1
+end

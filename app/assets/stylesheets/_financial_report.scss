@@ -1,9 +1,11 @@
 .case_flow {
   height: 65vh;
+  overflow: auto;
 }
 
 .balance_sheet {
   height: 35vh;
+  overflow: auto;
 }
 
 .vl {
@@ -20,4 +22,36 @@
   width: 40%;
   padding-left: 0px;
   margin-left: -2px
+}
+
+.title {
+  margin-left: 15px;
+}
+
+.scrol_bar{
+  overflow: auto;
+}
+
+@media only screen and (max-width: 600px)  {
+  .case_flow {
+    height: 100vh;
+    overflow: auto;
+  }
+
+  .balance_sheet {
+    height: 100vh;
+    overflow: auto;
+  }
+
+  .vl {
+    border-left: 0px;
+  }
+
+  .assets_sheet {
+    width: 100%;
+  }
+
+  .Liability {
+    width: 100%;
+  }
 }
