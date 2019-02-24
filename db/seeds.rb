@@ -8,12 +8,33 @@
 count = 1
 10.times do
   money = count * 100
-  CashFlow.create(item: "item#{count}", money: money)
+  CashFlow.create(subject: "subject#{count}", income_expenses: money)
   count += 1
 end
 
+count = 1
 10.times do
   money = -count * 100
-  CashFlow.create(item: "item#{count}", money: money)
+  CashFlow.create(subject: "subject#{count}", income_expenses: money)
+  count += 1
+end
+
+count = 1
+10.times do
+  money = count * 100
+  inv = Investment.create(subject: "subject#{count}",
+    down_payment: money * 10, cost: money * 100, debt: money * 700
+  )
+  inv.cash_flows.create(subject: inv.subject, income_expenses: -money * 0.7)
+  count += 1
+end
+
+count = 1
+10.times do
+  money = count * 100
+  inv = StockInvestment.create(coding: "subject#{count}",
+    price: count * 10, amount: 100
+  )
+  inv.cash_flows.create(subject: inv.coding, income_expenses: 0)
   count += 1
 end
