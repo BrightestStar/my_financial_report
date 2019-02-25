@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-ms bg-light navbar-light">
+  <a class="navbar-brand" href="#">我的财务状况</a>
+  <% if current_user %>
+    <div class="pull-right">
+      <%= link_to '退出', destroy_user_session_path, method: :delete, class: "btn btn-sm btn-light" %>
+    </div>
+  <% else %>
+    <div class="pull-right">
+      <%= link_to '登陆', new_user_session_path, class: "btn btn-sm btn-light" %>
+      <%= link_to '注册', new_user_registration_path, class: "btn btn-sm btn-light" %>
+    </div>
+  <% end %>
+</nav>
+<br>
