@@ -1,0 +1,2 @@
+module StockInvestmentsHelper
+end

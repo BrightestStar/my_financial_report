@@ -1,0 +1,6 @@
+<%= simple_form_for :cash_flow, url: cash_flows_path, method: :post, :remote => true do |f| %>
+  <br>
+  <%= f.input :subject, label: "收支来源", class: "form-control" %>
+  <%= f.input :income_expenses, label: "现金流", hint: "负数为支出", class: "form-control" %>
+  <%= f.submit "添加" %>
+<% end %>

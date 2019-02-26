@@ -1,0 +1,5 @@
+$("#incomes").append("<%=j render 'one_item', cash_input: @cash_flow %>")
+$("#new_cash_flow").modal('toggle')
+var sum = $("#incomes").parent().parent().next().find('span').text()
+sum = Number(sum) + <%= @cash_flow.income_expenses %>
+$("#incomes").parent().parent().next().find('span').text(sum)

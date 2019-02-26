@@ -8,12 +8,14 @@
 
 .vl {
   border-left: 2px solid;
+  border-color: black;
   height: auto;
 }
 
 .assets_sheet {
   width: 60%;
   padding-right: 0px;
+  margin-right: -1px;
   height: 25vh;
   overflow: auto;
 }
@@ -21,7 +23,7 @@
 .Liability {
   width: 40%;
   padding-left: 0px;
-  margin-left: -2px;
+  margin-left: -1px;
   height: 25vh;
   overflow: auto;
 }
@@ -38,6 +40,25 @@
 
 .card-body {
   padding-top: 5px;
+}
+
+.btn-circle {
+    width: 45px;
+    height: 45px;
+    padding: 4px 14px;
+    border-radius: 40px;
+    font-size: 24px;
+    line-height: 1.42857;
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+    margin: -10px 0px;
+    float: right;
+}
+
+.btn-circle:hover {
+  background-color: #ec971f;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  transform: translateY(-3px);
 }
 
 @media only screen and (max-width: 600px)  {
