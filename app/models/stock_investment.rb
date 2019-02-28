@@ -1,4 +1,4 @@
 class StockInvestment < ApplicationRecord
-  has_many :cash_flows
+  has_one :cash_flow, dependent: :destroy
   belongs_to :user
 end

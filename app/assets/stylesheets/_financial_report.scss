@@ -61,6 +61,17 @@
   transform: translateY(-3px);
 }
 
+.sum_div{
+  background: white;
+  border: 1px solid;
+  border-color: #F5F5F5;
+}
+
+.amount {
+  margin-top: 6px;
+  margin-right: 15px;
+}
+
 @media only screen and (max-width: 600px)  {
   .case_flow {
     height: 100vh;

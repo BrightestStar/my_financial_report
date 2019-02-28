@@ -1,0 +1,12 @@
+<%= simple_form_for :investment, url: investments_path, method: :post, :remote => true do |f| %>
+  <br>
+  <%= f.input :subject, label: "资产来源", class: "form-control" %>
+  <%= f.input :down_payment, label: "首付", class: "form-control" %>
+  <%= f.input :cost, label: "成本", class: "form-control" %>
+  <%= f.input :debt, label: "负债", hint: "负数为支出", class: "form-control" %>
+  <div class="group">
+    <%= label_tag :income_expenses, "现金流" %>
+    <%= text_field_tag :income_expenses, "", class: "form-control" %>
+  </div>
+  <%= f.submit "添加" %>
+<% end %>

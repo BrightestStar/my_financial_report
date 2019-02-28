@@ -25,7 +25,7 @@ count = 1
   inv = Investment.create(subject: "subject#{count}",
     down_payment: money * 10, cost: money * 100, debt: money * 700
   )
-  inv.cash_flows.create(subject: inv.subject, income_expenses: -money * 0.7)
+  inv.cash_flows.create(subject: inv.subject, income_expenses: money * 0.7)
   count += 1
 end
 

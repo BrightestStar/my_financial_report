@@ -1,0 +1,49 @@
+<div class="case_flow col-xs-12 col-sm-5">
+  <div class="card-header bg-white text-dark">
+    <span>
+      现金流量表
+      <%= link_to '+', "#cash_flows", class: "add_record btn btn-circle btn-lg"%>
+    </span>
+  </div>
+  <div class="card">
+    <div class="scoll">
+      <u class="title">收入状况</u>
+      <div class="card-body">
+        <table>
+          <div id="incomes">
+            <% @incomes.each do |cash_input| %>
+              <%= render "cash_flows/one_item", cash_input: cash_input %>
+            <% end %>
+          </div>
+        </table>
+      </div>
+    </div>
+    <div class="sum_div">
+      <span id="income" class="pull-right amount"><%= @incomes.sum(:income_expenses) %></span>
+      <button class="pull-right sum btn btn-default">Σ</button>
+    </div>
+    <div class="scoll">
+      <u class="title">支出状况</u>
+      <div class="card-body">
+        <table>
+          <div id="expenses">
+            <% @expenses.each do |cash_input| %>
+              <%= render "cash_flows/one_item", cash_input: cash_input %>
+            <% end %>
+          </div>
+        </table>
+      </div>
+    </div>
+    <div class="sum_div">
+      <span id="outlay" class="pull-right amount"><%= @expenses.sum(:income_expenses) %></span>
+      <button class="btn pull-right sum">Σ</button>
+    </div>
+    <div class="sum_div">
+      <span class="pull-right amount" id="total_income_expenses">
+        <%= @incomes.sum(:income_expenses) + @expenses.sum(:income_expenses) %>
+      </span>
+      <button class="total pull-right sum btn">Σ</button>
+    </div>
+  </div>
+</div>
+<br>

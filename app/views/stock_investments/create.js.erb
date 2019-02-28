@@ -1,12 +1,14 @@
+$("#stock").append("<%=j render 'one_stock', asset: @stock %>")
+$("#debt").append("<%=j render 'one_debt', asset: @stock %>")
+$("#new_balance_sheet").modal('toggle')
+
 var income_expenses = <%= @cash_flow.income_expenses %>
 if (income_expenses >= 0) {
   thisId = $("#incomes")
 } else {
   thisId = $("#expenses")
 }
-
-thisId.append("<%=j render 'one_item', cash_input: @cash_flow %>")
-$("#new_cash_flow").modal('toggle')
+thisId.append("<%=j render 'cash_flows/one_item', cash_input: @cash_flow %>")
 var sum = thisId.parent().parent().next().find('span').text()
 sum = Number(sum) + income_expenses
 thisId.parent().parent().next().find('span').text(parseFloat(sum))

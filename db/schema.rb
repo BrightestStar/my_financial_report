@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20190223153731) do
     t.string "coding"
     t.integer "amount"
     t.float "price", limit: 24
+    t.integer "debt"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

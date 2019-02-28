@@ -1,0 +1,12 @@
+<%= simple_form_for :stock_investment, url: stock_investments_path, method: :post, :remote => true do |f| %>
+  <br>
+  <%= f.input :coding, label: "股票/基金编码", class: "form-control" %>
+  <%= f.input :amount, label: "数量", class: "form-control" %>
+  <%= f.input :price, label: "成本单价", class: "form-control" %>
+  <%= f.input :debt, label: "负债", hint: "负数为支出", class: "form-control" %>
+  <div class="group">
+    <%= label_tag :income_expenses, "现金流" %>
+    <%= text_field_tag :income_expenses, "", class: "form-control" %>
+  </div>
+  <%= f.submit "添加" %>
+<% end %>

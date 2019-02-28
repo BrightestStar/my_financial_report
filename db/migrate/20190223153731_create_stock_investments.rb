@@ -4,6 +4,7 @@ class CreateStockInvestments < ActiveRecord::Migration[5.1]
       t.string :coding
       t.integer :amount
       t.float :price
+      t.integer :debt
       t.integer :user_id
 
       t.timestamps
