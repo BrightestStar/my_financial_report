@@ -1,6 +1,11 @@
 <div class="row editor">
-  <div class="col-7"><%= cash_input.subject %></div>
-  <div class="col-5">
+  <div class="col-6"><%= cash_input.subject %></div>
+  <div class="col-6">
+    <span>
+      <%= link_to cash_flow_path(cash_input), method: :delete do %>
+        <i class="material-icons delete_item">delete_outline</i>
+      <% end %>
+    </span>
     <span class="pull-right">
       ¥<%= cash_input.income_expenses %>
     </span>

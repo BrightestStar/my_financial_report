@@ -1,4 +1,12 @@
 <div class="row editor">
   <div class="col">股基编码(<%= asset.coding %>)</div>
-  <div class="col"><%= asset.debt %></div>
+  <div class="col">
+    <%= asset.debt %>
+    <span>
+      <%= link_to stock_investment_path(asset), method: :delete do %>
+        <i class="material-icons delete_item">delete_outline</i>
+      <% end %>
+    </span>
+  </div>
+
 </div>

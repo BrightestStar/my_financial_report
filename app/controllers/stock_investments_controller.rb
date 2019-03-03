@@ -1,4 +1,6 @@
 class StockInvestmentsController < ApplicationController
+  before_action :find_item, only: %i[destroy]
+
   def create
     @stock = current_user.stock_investments.create!(param_stock)
     subject = "股基编码(" + @stock.coding.to_s + ")"
@@ -8,9 +10,20 @@ class StockInvestmentsController < ApplicationController
     @cash_flow = current_user.cash_flows.create!(subject: subject,
                                                  income_expenses: amount,
                                                  stock_investment_id: @stock.id)
+
+    redirect_to dashboard_path
+  end
+
+  def destroy
+    @stock.destroy
+    redirect_to dashboard_path
   end
 
   private
+
+  def find_item
+    @stock = StockInvestment.find(params[:id])
+  end
 
   def param_stock
     params.require(:stock_investment).permit(:coding, :amount, :price, :debt)

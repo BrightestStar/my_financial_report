@@ -1,5 +1,13 @@
 <div class="row editor">
   <div class="col"><%= asset.coding %></div>
   <div class="col"><%= asset.amount %></div>
-  <div class="col"><%= asset.price %></div>
+  <div class="col">
+    <%= asset.price %>
+    <span>
+      <%= link_to stock_investment_path(asset), method: :delete do %>
+        <i class="material-icons delete_item">delete_outline</i>
+      <% end %>
+    </span>
+  </div>
+
 </div>

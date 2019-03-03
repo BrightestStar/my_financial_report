@@ -57,18 +57,10 @@
   </body>
 
   <script>
-    $('.sum').on('click', function () {
-      var prevMoney = $(this).parent().prev().find('span').text()
-      var money = prevMoney.split('¥')
-      sum = 0
-      $.each(money, function () {
-        sum += parseFloat(this) || 0
-      })
-      $(this).prev().text(parseFloat(sum))
+    $(document).ready(function() {
+      $(".delete_item").hide()
     })
-    $('.total').click(function () {
-      totalIncomeExpenses()
-    })
+
     $('.add_record').click(function (e) {
       e.preventDefault();
       if ($(this).attr("href") == "#cash_flows") {
@@ -78,11 +70,26 @@
       }
     })
 
-    function totalIncomeExpenses(){
-      var income = Number($('#income').text())
-      var outlay = Number($('#outlay').text())
-      var sum = income + outlay
-      $("#total_income_expenses").text(parseFloat(sum))
-    }
+    $(document).click(function () {
+      $('.delete_item').hide()
+    });
+
+    $('.editor').click(function(e){
+      $('.delete_item').hide()
+      e.stopPropagation();
+      $(this).find('.delete_item').show()
+    })
+
+    $('.delete_item').click(function(e){
+      e.preventDefault();
+      var url = $(this).parent().attr('href');
+
+      $.ajax({
+        url: url,
+        type: "DELETE",
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+      })
+    })
+
   </script>
 </html>

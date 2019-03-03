@@ -6,24 +6,18 @@
   height: 35vh;
 }
 
-.vl {
-  border-left: 2px solid;
-  border-color: black;
-  height: auto;
-}
-
 .assets_sheet {
   width: 60%;
   padding-right: 0px;
-  margin-right: -1px;
   height: 25vh;
   overflow: auto;
+  border-right: 1px solid;
+  border-color: LightGrey;
 }
 
 .Liability {
   width: 40%;
   padding-left: 0px;
-  margin-left: -1px;
   height: 25vh;
   overflow: auto;
 }
@@ -70,6 +64,11 @@
 .amount {
   margin-top: 6px;
   margin-right: 15px;
+}
+
+.delete_item {
+  width: 20px;
+  float: right;  
 }
 
 @media only screen and (max-width: 600px)  {
