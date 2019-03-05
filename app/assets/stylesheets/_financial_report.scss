@@ -68,7 +68,17 @@
 
 .delete_item {
   width: 20px;
-  float: right;  
+  float: right;
+}
+
+.save_item {
+  width: 20px;
+  float: right;
+}
+
+.update_item {
+  width:100%;
+  border: none;
 }
 
 @media only screen and (max-width: 600px)  {

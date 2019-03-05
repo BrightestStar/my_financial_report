@@ -1,10 +1,14 @@
-<div class="row editor">
-  <div class="col"><%= asset.subject %></div>
+<div class="row editor" name="assets">
   <div class="col">
-    <%= asset.debt %>
+    <input type="text" class="update_item" name="subject" value="<%= asset.subject %>" ></div>
+  <div class="col">
     <span>
+      <input type="text" class="update_item" name="debt" value="<%= asset.debt %>" style="width:75%" >
       <%= link_to investment_path(asset), method: :delete do %>
         <i class="material-icons delete_item">delete_outline</i>
+      <% end %>
+      <%= link_to investment_path(asset), method: :put do %>
+        <i class="material-icons save_item">done</i>
       <% end %>
     </span>
   </div>

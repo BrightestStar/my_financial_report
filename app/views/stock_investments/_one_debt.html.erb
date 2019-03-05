@@ -1,12 +1,18 @@
-<div class="row editor">
-  <div class="col">股基编码(<%= asset.coding %>)</div>
+<div class="row editor" name="coding">
   <div class="col">
-    <%= asset.debt %>
+    <input type="text" class="update_item" name="coding" value="股基编码(<%= asset.coding %>)" >
+  </div>
+  <div class="col">
     <span>
+      <input type="text" class="update_item" style="width:75%" name="debt" value="<%= asset.debt %>" >
       <%= link_to stock_investment_path(asset), method: :delete do %>
         <i class="material-icons delete_item">delete_outline</i>
       <% end %>
+      <%= link_to stock_investment_path(asset), method: :put do %>
+        <i class="material-icons save_item">done</i>
+      <% end %>
     </span>
+
   </div>
 
 </div>

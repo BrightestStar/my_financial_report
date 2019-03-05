@@ -1,5 +1,5 @@
 class StockInvestmentsController < ApplicationController
-  before_action :find_item, only: %i[destroy]
+  before_action :find_item, only: %i[destroy update]
 
   def create
     @stock = current_user.stock_investments.create!(param_stock)
@@ -11,6 +11,13 @@ class StockInvestmentsController < ApplicationController
                                                  income_expenses: amount,
                                                  stock_investment_id: @stock.id)
 
+    redirect_to dashboard_path
+  end
+
+  def update
+    account_items = params["account_items"].values
+    update_arg = account_items.reduce({}, :merge)
+    @stock.update(update_arg)
     redirect_to dashboard_path
   end
 

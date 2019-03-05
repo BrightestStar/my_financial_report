@@ -59,6 +59,7 @@
   <script>
     $(document).ready(function() {
       $(".delete_item").hide()
+      $('.save_item').hide()
     })
 
     $('.add_record').click(function (e) {
@@ -72,12 +73,14 @@
 
     $(document).click(function () {
       $('.delete_item').hide()
+      $('.save_item').hide()
     });
 
     $('.editor').click(function(e){
       $('.delete_item').hide()
       e.stopPropagation();
       $(this).find('.delete_item').show()
+      $(this).find('.save_item').show()
     })
 
     $('.delete_item').click(function(e){
@@ -88,6 +91,28 @@
         url: url,
         type: "DELETE",
         beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+      })
+    })
+
+    $('.save_item').click(function(e){
+      e.preventDefault();
+      var url = $(this).parent().attr('href');
+      var topEle = $(this).parent().parent().parent().parent()
+      var inputs = topEle.find('input')
+      var name = topEle.attr('name')
+      var account_items = []
+
+      $.each(inputs, function(){
+        var item_hash = {}
+        item_hash[$(this).attr("name")] = $(this).val()
+        account_items.push(item_hash)
+      })
+
+      $.ajax({
+        url: url,
+        type: "PUT",
+        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+        data: {account_items: account_items}
       })
     })
 
