@@ -38,12 +38,14 @@ gem 'devise'
 gem 'simple_form'
 
 group :development, :test do
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
   gem 'pry'
+  gem 'selenium-webdriver'
 end
 
 group :development do
