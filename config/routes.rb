@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :cash_flows, only: %i[new create update destroy]
   resources :investments, only: %i[new create update destroy]
   resources :stock_investments, only: %i[new create update destroy]
+
+  resources :comments, only: %i[index create update destroy]
 end

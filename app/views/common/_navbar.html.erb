@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-ms bg-white navbar-light">
-  <a class="navbar-brand" href="#">我的财务状况</a>
+  <a class="navbar-brand" href="/">我的财务状况</a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item"><%= link_to '反馈', comments_path, class: "btn btn-default"%></li>
+  </ul>
   <% if current_user %>
     <div class="pull-right">
       <%= link_to '退出', destroy_user_session_path, method: :delete, class: "btn btn-sm btn-light" %>

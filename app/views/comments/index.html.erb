@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="side-width"></div>
+  <div class="mobile-screen">
+    <br>
+    <h4>对我说的话</h4>
+    <br>
+    <% @comments.each do |comment| %>
+      <span><%= comment.user.name ? comment.user.name : comment.user.email %>：</span>
+      <%= simple_form_for :comment, url: comment_path(comment), method: :put, :remote => true do |f| %>
+        <%= f.text_area :content, class: "say_something", value: "#{comment.content}"%>
+        <% if current_user && current_user == comment.user %>
+          <%= f.submit "更新", class: "options btn-warning btn-sm", style: "margin-top: -90px;" %>
+          <%= link_to "删除", comment_path(comment), method: :delete, class: "options btn-danger btn-sm", style: "margin-top: -40px;" %>
+        <% end %>
+      <% end %>
+      <br>
+    <% end %>
+    <br>
+
+    <h4>对我说点什么</h4>
+    <%= simple_form_for :comment, url: comments_path, method: :post, :remote => true do |f| %>
+      <%= f.text_area :content, class: "form-control to_say" %>
+      <%= f.submit "添加", class: "options btn-primary btn-sm", style: "margin-top: -50px;"  %>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $(".say_something").each(function(){
+      if ($(this).next().length == 0 ) {
+        $(this).prop('disabled', true)
+      }
+    })
+  })
+</script>
