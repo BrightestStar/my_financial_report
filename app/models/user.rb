@@ -9,4 +9,10 @@ class User < ApplicationRecord
   has_many :stock_investments, dependent: :destroy
 
   has_many :comments
+
+  before_save :verify_user_name
+
+  def verify_user_name
+    self.name = nil if name == '作者'
+  end
 end
